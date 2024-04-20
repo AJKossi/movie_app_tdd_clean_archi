@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movie_app/injection_container.dart';
 import 'package:movie_app/presentation/bloc/popular_movies/popular_movies_bloc.dart';
 import 'package:movie_app/presentation/bloc/popular_movies/popular_movies_event.dart';
@@ -8,7 +9,13 @@ import 'package:movie_app/presentation/bloc/trending_movies/trending_movies_even
 import 'package:movie_app/presentation/pages/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async{
+  await dotenv.load(fileName: '.env');
+  
+  print('Environment variables loaded successfully:');
+  dotenv.env.forEach((key, value) {
+    print('$key: $value');
+  });
   init();
   runApp(const MyApp());
 }

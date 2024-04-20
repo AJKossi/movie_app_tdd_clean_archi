@@ -1,23 +1,25 @@
 import 'dart:convert';
 
+//import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:movie_app/core/errors/server_exception.dart';
-import 'package:movie_app/core/errors/server_failure.dart';
 import 'package:movie_app/data/datasources/movie_remote_data_source.dart';
 import 'package:movie_app/data/models/movie_model.dart';
-import 'package:dartz/dartz.dart';
-
-
+//import 'package:dotenv/dotenv.dart';
 class MovieRemoteDataSourceImpl implements MovieRemoteDataSource{
   final http.Client client;
 
   MovieRemoteDataSourceImpl({required this.client});
+  //var env = DotEnv(includePlatformEnvironment: true)..load(['.env']);
 
-  static const BASE_URL = "https://api.themoviedb.org/3";
-  static const API_KEY = "dc228d68bf654d2b8d95fa8652572c8e";
+  
+  final BASE_URL =dotenv.env["BASE_URL"]!;
+  final API_KEY = dotenv.env["API_KEY"]!;
 
   @override
   Future<List<MovieModel>> getPopularMovies() async {
+    print('your BASE URL is: $BASE_URL');
     final response = await client.get(
       Uri.parse("$BASE_URL/movie/popular?api_key=$API_KEY"),
     );
