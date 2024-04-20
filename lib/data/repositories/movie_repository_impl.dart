@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'package:movie_app/core/errors/server_exception.dart';
 import 'package:movie_app/core/errors/server_failure.dart';
 import 'package:movie_app/data/datasources/movie_remote_data_source.dart';

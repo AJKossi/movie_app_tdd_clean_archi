@@ -16,19 +16,20 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        elevation: 0,toolbarHeight: 100,
+        elevation: 5,
+        toolbarHeight: 100,
         backgroundColor: Colors.black,
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hi Fabrice 👋',
+              'Hi Kossi 👋',
               textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.white),
             ),
             Text(
               'TDD - Movie App',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.blue),
             ),
           ],
         ),
@@ -68,8 +69,8 @@ class HomeScreen extends StatelessWidget {
                             },
                             child: Text('▶️ Learn Flutter with Flutter Guys'),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.red,
-                              onPrimary: Colors.white,
+                              foregroundColor: Colors.white, 
+                              backgroundColor: Colors.red,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20), // Border radius
                               ),
